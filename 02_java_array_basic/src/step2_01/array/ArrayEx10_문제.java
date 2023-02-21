@@ -22,9 +22,10 @@ public class ArrayEx10_문제 {
 		int[] lotto2 = {7, 0, 7, 7, 0, 0, 0, 0};
 		int[] lotto3 = {7, 0, 7, 7, 7, 0, 7, 0};
 		int sel      = 0;
+		
 		while (true) {
 			
-			boolean ini		 = true;
+			int cnt = 0;
 					
 			System.out.println("\n[1]번복권 결과확인");
 			System.out.println("[2]번복권 결과확인");
@@ -34,33 +35,26 @@ public class ArrayEx10_문제 {
 			sel = scan.nextInt();
 			
 			if(sel == 1) {
-			for (int i = 0; i < lotto1.length; i++) {
-				if(lotto1[i] == 7 && lotto1[i+1] == 7 && lotto1[i+2] == 7) {
-					ini = true;
+				for (int i = 0; i < lotto1.length; i++) {
+					if(lotto1[i] == 7 && lotto1[i+1] == 7 && lotto1[i+2] == 7) {
+						cnt++;
+					}
+				}
+				if(cnt != 0) {
+					System.out.println("1번 복권은 당첨 복권입니다.");
 				}
 				else {
-					ini = false;
-				}
-
-			}
-			if(ini = true) {
-				System.out.println("1번 복권은 당첨 복권입니다.");
-			}
-			else {
 				System.out.println("1번 복권은 당첨 복권이 아닙니다.");
-			}
+				}
 			}
 			else if(sel == 2) {
 				for (int i = 0; i < lotto2.length; i++) {
 					if(lotto2[i] == 7 && lotto2[i+1] == 7 && lotto2[i+2] == 7) {
-						ini = true;
-					}
-					else {
-						ini = false;
+						cnt++;
 					}
 					
 				}
-				if(ini = true) {
+				if(cnt != 0) {
 					System.out.println("2번 복권은 당첨 복권입니다.");
 				}
 				else {
@@ -70,14 +64,11 @@ public class ArrayEx10_문제 {
 			else if(sel == 3) {
 				for (int i = 0; i < lotto3.length; i++) {
 					if(lotto3[i] == 7 && lotto3[i+1] == 7 && lotto3[i+2] == 7) {
-						ini = true;
-					}
-					else {
-						ini = false;
+						cnt++;
 					}
 					
 				}
-				if(ini = true) {
+				if(cnt != 0) {
 					System.out.println("3번 복권은 당첨 복권입니다.");
 				}
 				else {

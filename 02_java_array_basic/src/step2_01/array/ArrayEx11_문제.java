@@ -1,5 +1,6 @@
 package step2_01.array;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /*
@@ -37,7 +38,8 @@ public class ArrayEx11_문제 {
 		
 		boolean[] isFirst = new boolean[5];
 		int[] arr   = new int[5];
-					
+		
+		
 	}
 	
 }
