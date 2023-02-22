@@ -38,7 +38,30 @@ public class ArrayEx11_문제 {
 		
 		boolean[] isFirst = new boolean[5];
 		int[] arr   = new int[5];
+		int idx = 0;
 		
+		for (int i = 0; i >= 0; i++) {
+			
+			int newNum = ran.nextInt(5);
+			
+			if(isFirst[newNum] == false) {
+				
+				isFirst[newNum] = true;
+				
+				arr[idx] = newNum;
+				
+				idx++;
+			}
+			else {
+				continue;
+			}
+		if(idx == 5) {
+			break;
+		}
+			
+		}
+		
+		System.out.println(Arrays.toString(arr));
 		
 	}
 	

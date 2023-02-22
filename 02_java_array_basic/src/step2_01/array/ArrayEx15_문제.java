@@ -36,6 +36,10 @@ public class ArrayEx15_문제 {
 		int[] front = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5};
 		int[] back = new int[10];
 		int cnt  = 0;
+		int firstInput = 0;
+		int secondInput = 0;
+		int idx = 1;
+		int same = 0;
 		
 		// 셔플 구현(Shuffle) : 배열의 요소들을 무작위로 섞음
 		while (cnt < 1000) {			
@@ -44,17 +48,58 @@ public class ArrayEx15_문제 {
 			front[0] = front[tempRan];
 			front[tempRan] = temp;
 			cnt++;
-		}
+		}//front 배열은 다 섞임
 			
-		for (int i=0; i<front.length; i++) {
-			System.out.print(front[i] + " ");
-		}
-		System.out.println();
-		for (int i=0; i<front.length; i++) {
-			System.out.print(back[i] + " ");
-		}
-		System.out.println();
+		while(idx <= 6) {
+			for (int i=0; i<front.length; i++) {//front 배열 프린트
+				System.out.print(front[i] + " ");
+			}
+			System.out.println();
+		
+			for (int i=0; i<front.length; i++) {//back 배열 프린트
+				System.out.print(back[i] + " ");
+			}
+			System.out.println();
 			
+			System.out.print("입력1 : ");
+			firstInput = scan.nextInt();
+			System.out.print("입력2 : ");
+			secondInput = scan.nextInt();
+			
+			if(front[firstInput] == front[secondInput]) {
+				if(front[firstInput] != idx) {
+					System.out.println("순서에 맞게 입력해주세요.");
+					continue;
+				}
+				else {
+					
+				back[firstInput] = idx;
+				back[secondInput] = idx;
+				idx++;
+				System.out.println("맞았습니다.");
+				}
+			}
+			else {
+				System.out.println("틀렸습니다.");
+				continue;
+			}
+			
+			
+			for (int i = 0; i < back.length; i++) {
+				if(back[i] == front[i]) {
+					same++;
+				}
+						
+			}//같으면 종료 조건 생성
+			
+			if(same == 10) {
+				System.out.println("게임 종료");
+				break;
+			}
+			
+		}
+		
+		scan.close();
 			
 	}
 	
