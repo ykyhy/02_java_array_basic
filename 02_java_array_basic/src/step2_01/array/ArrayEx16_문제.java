@@ -1,5 +1,9 @@
 package step2_01.array;
 
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
+
 /*
  * # 1 to 50[1단계] : 1 to 4
  * 
@@ -27,8 +31,72 @@ public class ArrayEx16_문제 {
 
 	public static void main(String[] args) {
 		
+		Random ran = new Random(); 
+		
+		Scanner scan = new Scanner(System.in);
+		
 		int[] arr = new int[4];
+		
 		boolean[] isCheck = new boolean[4];
+		
+		int idx = 0;
+		
+		while(idx<4) {
+			
+			int seat = ran.nextInt(4)+1;
+			
+			if(isCheck[seat-1] == false) {
+				
+				isCheck[seat-1] = true;
+				
+				arr[idx] = seat;
+				
+				idx++;
+				
+			}
+		}
+		
+		System.out.println(Arrays.toString(arr));
+		
+		int correctNum = 0;
+	
+		for (int i = 0; i >=0; i++) {
+			
+			int min = 5;
+			
+			for (int j = 0; j < arr.length; j++) {
+				if(min > arr[j]) {
+					min = arr[j];
+				}
+			}//최솟값 찾기
+			
+			System.out.print("입력 : ");
+			
+			int myAnswer = scan.nextInt();
+			
+			if(arr[myAnswer-1] == min) {
+				
+				arr[myAnswer-1] = 9;
+				
+				System.out.println(Arrays.toString(arr));
+				
+				correctNum++;
+				
+			}
+			else {
+				System.out.println("틀렸습니다.");
+				continue;
+			}
+			
+			if(correctNum == 4) {
+				System.out.println("모두 맞추셨습니다.");
+				break;
+			}
+				
+		}
+			
+		scan.close();	
+		
 		
 	}
 	
